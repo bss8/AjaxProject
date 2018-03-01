@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="ACC Ajax class project for Boris S.">
+        <meta name="author" content="Borislav Sabotinov">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link type="text/css" rel="stylesheet" href="resources/css/style.css">
+        <link rel="icon" type="image/ico" href="resources/images/favicon.ico" />
+
+        <script type="text/javascript" src="resources/js/app.js"></script>
+
+        <title>Ajax Project - Boris</title>
+
+        <!--/***********************************************
+        * Ajax Tabs Content script v2.2- © Dynamic Drive DHTML code library (www.dynamicdrive.com)
+        * This notice MUST stay intact for legal use
+        * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+        ***********************************************/-->
+    </head>
+
+    <body>
+        <!-- DESCRIPTION -->
+
+        <div class="header" style="background: #2f4f4f; color: white; height: 100px;">
+            <img id="logo" src="resources/images/blurred_profile_pic.jpg" height="100" width="100"/>
+            <h1 id="title">Ajax Project - Boris</h1>
+        </div>
+
+        <br/>
+
+        <a class="a" href="javascript:load('tabs/description.html', 'content');">
+            <button>Project Description</button>
+        </a>
+        <hr/>
+
+        <div id="content" class="dialog"></div>
+
+        <br/>
+        <hr/>
+        <br/>
+
+        <!-- TABS -->
+        <ul id="myTabs" class="tabs" >
+            <li onclick="loadNested()"><a href="#" rel="#default" class="selected" >Nested Tabs</a></li>
+            <li><a href="tabs/myBiography.html" rel="#iframe" >My Biography</a></li>
+            <li><a href="tabs/myResume.html" rel="tabsContainer">My Resume</a></li>
+            <li><a href="tabs/class1.html" rel="tabsContainer">Class 1</a></li>
+            <li><a href="tabs/class2.html" rel="tabsContainer">Class 2</a></li>
+            <li><a href="tabs/capstone.html" rel="tabsContainer">Capstone Project</a></li>
+            <li><a href="tabs/iframeFetch.html" rel="#iframe">iFrame Fetch</a></li>
+            <li><a href="https://www.growyourcareer.com">Grow Your Career</a></li>
+        </ul>
+
+        <div id="tabsContainerId" class="tabsContainer dialog">
+            <div href="#" class="close" onclick="removeText('tabsContainerId')"></div>
+            <p>This default tab contains nested tabs. I encountered an issue where if another tab is clicked and we
+            click back to the "Nested Tabs" tab, content does not display in tabsContainerId2 and clicking on "Nested 1"
+            loaded the content of nested1.html but as a standalone page, rather than inside the div. As a workaround, I
+            am calling a refresh function whenever the "Nested Tabs" tab is clicked. </p>
+
+            <br style="display: block; margin: 10px 0;"/>
+            <a href="javascript:loadImage()">
+                <button>Load Image</button>
+            </a>
+            <br style="display: block; margin: 20px 0; content: '';"/>
+            <img src=""/>
+
+            <ul id="myTabs2" class="tabs" style="margin-left: 10px;">
+                <li><a id="one" href="tabs/nested1.html" rel="#iframe" class="selected">Nested 1</a></li>
+                <li><a id="two" href="tabs/nested2.html" rel="#iframe">Nested 2</a></li>
+            </ul>
+
+            <div id="tabsContainerId2" class="tabsContainer dialog" style="margin-left: 10px;">
+                <div href="#" class="close" onclick="removeText('tabsContainerId2')"></div>
+            </div>
+        </div>
+
+        <!-- Rather than try to inject dynamic JS into an Ajax loaded div or try to evaluate a script post-load,
+             create dummy divs to initialize pagination variables and set display to none as a workaround. -->
+        <div id="paginate-top" style="display: none;"> </div>
+        <div id="bookcontent" style="display: none;"> </div>
+        <div id="paginate-bottom" style="display: none;"> </div>
+
+        <script type="text/javascript">
+            // Initialization of tabs
+            var myTabs = new tabs("myTabs", "tabsContainerId");
+            myTabs.setPersist(true);
+            myTabs.setSelectedClassTarget("link"); //"link" or "linkparent"
+            myTabs.init();
+
+            // Init of nested tabs2
+            var myTabs2 = new tabs("myTabs2", "tabsContainerId2");
+            myTabs2.setPersist(false);
+            myTabs2.setSelectedClassTarget("link"); //"link" or "linkparent"
+            myTabs2.init();
+        </script>
+
+        <div>
+            <a href="javascript:myTabs.cycleIt('prev')" style="margin-right: 250px; text-decoration:none">
+                <button>Back</button>
+            </a>
+            <a href="javascript:myTabs.cycleIt('next')" style="text-decoration:none">
+                <button>Next</button>
+            </a>
+        </div>
+
+    </body>
+</html>

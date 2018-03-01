@@ -1,0 +1,212 @@
+/*
+    Author: Boris
+    Absolutely NO "CSS Hacks" and no explicit support for older IE browsers.
+    Note that Tabs and Pages style was adopted and modified from:
+    Dynamic Drive DHTML code library (http://www.dynamicdrive.com)
+ */
+
+/* To make links more interesting, the color is different, underline thicker
+and animated - retracts from both sides towards the center on hover */
+
+div#logo {
+    float: left;
+}
+
+h1#title {
+    float: right;
+    margin-right: 40%;
+    text-align: center;
+}
+
+.a {
+    color: #000;
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+}
+.a:before {
+    background-color: #000;
+    content: '';
+    height: 2px;
+    position: absolute;
+    bottom: -1px;
+    left: 50%;
+    /*translateX() CSS function repositions an element horizontally on the 2D plane.*/
+    transform: translateX(-50%);
+    /*specifies a transition effect with a slow start and end*/
+    transition: width 0.3s ease-in-out;
+    width: 100%;
+}
+.a:hover:before {
+    width: 0;
+}
+
+/* More interesting buttons */
+button {
+    background: #3498db;
+    border-radius: 15px;
+    text-shadow: 2px 2px 3px #1a171a;
+    font-family: Courier New, sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    border: dotted #e0e0e0 2px;
+    text-decoration: none;
+}
+button:hover {
+    background: #78bce6 linear-gradient(to bottom, #78bce6, #3498db);
+    text-decoration: none;
+}
+
+/* Description and content IDs specific to project description/intro */
+#description {
+    text-align: center;
+}
+
+#content {
+    height: 100px;
+    max-height: 100px;
+    overflow-y: scroll;
+    border: 1px solid darkslategrey;
+}
+/* Dialog */
+.dialog {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #1648ff;
+    position: relative;
+}
+
+/* Close Button
+ Attribute wildcard selector, looks for any child element with close
+ */
+[class*='close'] {
+    color: #777;
+    position: absolute;
+    font-family: Courier New, sans-serif;
+    font-weight: lighter;
+    right: 5px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #fff;
+    top: 5px;
+    cursor: pointer;
+}
+.close:after {
+    content: 'X';
+}
+
+.tabsContainer {
+    border:1px solid gray;
+    margin-bottom: 1em;
+    margin-right: 10px;
+    height: 400px;
+    overflow-y: auto;
+}
+
+/* TABS */
+.tabs {
+    padding: 3px 0;
+    margin-left: 0;
+    margin-top: 1px;
+    margin-bottom: 0;
+    font: bold 12px Verdana;
+    list-style-type: none;
+    text-align: left; /*set to left, center, or right to align the menu as desired*/
+}
+
+.tabs li {
+    display: inline;
+    margin: 0;
+}
+
+.tabs li a {
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+    padding: 3px 7px;
+    margin-right: 3px;
+    border: 1px solid #778;
+    color: #2d2b2b;
+    background: white top left repeat-x;
+}
+
+.tabs li a:visited {
+    color: #2d2b2b;
+}
+
+.tabs li a:hover {
+    text-decoration: underline;
+    color: #2d2b2b;
+}
+
+/*selected main tab style */
+.tabs li a.selected {
+    position: relative;
+    top: 1px;
+}
+
+/*selected main tab style */
+.tabs li a.selected{
+    border-bottom-color: white;
+}
+
+/*selected main tab style */
+.tabs li a.selected:hover{
+    text-decoration: none;
+}
+
+/* PAGES */
+.pages{
+    padding: 2px;
+    margin: 1em 0;
+    clear: both;
+}
+
+.pages ul{
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    font-size: 100%;
+}
+
+.pages li{
+    list-style-type: none;
+    display: inline;
+    padding-bottom: 1px;
+}
+
+.pages a, .pages a:visited, .pages a:active{
+    padding: 0 5px;
+    border: 1px solid #9aafe5;
+    text-decoration: none;
+    color: #e39934;
+}
+
+.pages a:hover{
+    border: 1px solid #e3a81d;
+    color: #000;
+    background-color: #FFFF80;
+}
+
+/*Style for currently selected page link*/
+.pages a.currentpage{
+    background-color: #e39934;
+    color: #FFF !important;
+    border-color: #e3a81d;
+    font-weight: bold;
+    cursor: default;
+}
+
+/*Style for "disabled" previous or next link*/
+.pages a.disabled, .pages a.disabled:hover{
+    background-color: white;
+    cursor: default;
+    color: #929292;
+    border-color: transparent;
+}
+
+/*Style for previous and next link*/
+.pages a.prevnext{
+    font-weight: bold;
+}

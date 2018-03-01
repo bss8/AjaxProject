@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<link type="text/css" rel="stylesheet" href="../resources/css/style.css">
+</head>
+<body>
+<script type="text/javascript" src="../resources/js/app.js"></script>
+<div href="#" class="close" onclick="removeText('bio')"></div>
+<div id="bio">
+    <a href="javascript:myBiographyInstance.refresh(additionalPages)" >
+        <button style="margin-top: 15px;"> Load 3 more pages </button>
+    </a>
+    <br/>
+    <div style="margin-top: 15px;">
+        I am an Operation Enduring Freedom/New Dawn veteran and a graduate of the School of Public and Environmental Affairs at Indiana University.
+        <br/>I researched the effects of diversity on the U.S. energy sector and developed my personal website GrowYourCareer.com.
+        <br/>Currently, I am a software developer at General Motors pursuing a Masters in Computer Science at Texas State University.
+        <br/>My goal is to become an enterprise software architect.
+        <br/>
+    </div>
+    <hr/>
+    <div id="paginate-top"> </div>
+    <div id="bookcontent"> </div>
+    <div id="paginate-bottom"> </div>
+</div>
+
+<script>
+    var myBiographyPages={
+        pages: ["pages/education.html", "pages/hobbies.html", "pages/interests.html",
+            "pages/myPhilosophy.html"],
+        selectedpage: 0 //set page shown by default (0=1st page)
+    };
+
+    var myBiographyInstance = new myPages.createBook(myBiographyPages, "bookcontent", ["paginate-top", "paginate-bottom"]);
+
+    var additionalPages={
+        pages: ["pages/education.html", "pages/hobbies.html", "pages/interests.html",
+            "pages/myPhilosophy.html", "pages/additional.html", "pages/additional2.html",
+            "pages/additional3.html"],
+        selectedpage: 0 //set page shown by default (0=1st page)
+    };
+</script>
+
+</body>
+</html>
